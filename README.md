@@ -1,12 +1,12 @@
-# Basic Maven Project with Jenkins Pipeline
+# Student Result Calculator with Jenkins Pipeline
 
-This repository contains a minimal Java Maven application and a Jenkins declarative pipeline.
+This repository contains a simple Java Maven application that calculates a student's total marks, average, and pass or fail result, along with a Jenkins declarative pipeline.
 
 ## Project Structure
 
 - `pom.xml` - Maven build configuration
-- `src/main/java/com/example/App.java` - Application entry point
-- `src/test/java/com/example/AppTest.java` - Unit test
+- `src/main/java/com/example/App.java` - Student result calculator application
+- `src/test/java/com/example/AppTest.java` - Unit tests
 - `Jenkinsfile` - Jenkins pipeline definition
 
 ## What the Pipeline Does
@@ -18,6 +18,15 @@ The Jenkins pipeline runs these stages:
 3. Run tests with `mvn test`
 4. Package the application with `mvn package -DskipTests`
 5. Publish JUnit reports and archive the generated JAR
+
+## What the Application Does
+
+The application:
+
+1. Calculates the total marks for three subjects
+2. Calculates the average marks
+3. Decides whether the student passed or failed
+4. Prints a formatted student report
 
 ## Jenkins Requirements
 
