@@ -1,53 +1,92 @@
-# Student Result Calculator with Jenkins Pipeline
+# Smart Loan Advisor with Jenkins Pipeline
 
-This repository contains a simple Java Maven application that calculates a student's total marks, average, and pass or fail result, along with a Jenkins declarative pipeline.
+This repository contains a Java Maven project that evaluates a loan application using easy-to-follow financial rules, plus a small website for demo purposes and a Jenkins declarative pipeline for CI.
 
-## Project Structure
+## Project Idea
 
-- `pom.xml` - Maven build configuration
-- `src/main/java/com/example/App.java` - Student result calculator application
-- `src/test/java/com/example/AppTest.java` - Unit tests
-- `Jenkinsfile` - Jenkins pipeline definition
+The project simulates a basic loan screening system. It analyzes:
 
-## What the Pipeline Does
+1. Monthly disposable income
+2. Estimated EMI
+3. Debt-to-income ratio
+4. Credit score
+5. Risk level
+6. Final loan recommendation
 
-The Jenkins pipeline runs these stages:
+The final decision can be:
 
-1. Checkout the source code
-2. Build the project with `mvn clean compile`
-3. Run tests with `mvn test`
-4. Package the application with `mvn package -DskipTests`
-5. Publish JUnit reports and archive the generated JAR
+- `APPROVED`
+- `CONDITIONAL APPROVAL`
+- `REJECTED`
 
-## What the Application Does
+## Java Logic
 
-The application:
+The Java application is inside:
 
-1. Calculates the total marks for three subjects
-2. Calculates the average marks
-3. Decides whether the student passed or failed
-4. Prints a formatted student report
+- `src/main/java/com/example/App.java`
+- `src/main/java/com/example/LoanProfile.java`
+- `src/main/java/com/example/LoanAssessment.java`
 
-## Jenkins Requirements
+Main responsibilities:
 
-Make sure your Jenkins agent has:
+1. Calculate EMI using the standard loan EMI formula
+2. Measure disposable income after expenses and existing EMIs
+3. Compute debt-to-income ratio
+4. Assign applicant risk as `LOW`, `MEDIUM`, or `HIGH`
+5. Recommend a final decision and a safe sanctioned amount
 
-- Java 17 installed
-- Maven installed and available in `PATH`
+## Website Demo
 
-## Creating the Jenkins Job
+The demo website is inside:
 
-1. Push this project to GitHub, GitLab, or another Git repository.
-2. In Jenkins, create a new `Pipeline` job.
-3. Under `Pipeline`, choose `Pipeline script from SCM`.
-4. Select your SCM provider and repository URL.
-5. Keep the script path as `Jenkinsfile`.
-6. Save and run the job.
+- `web/index.html`
+- `web/styles.css`
+- `web/app.js`
 
-## Local Build
+Open `web/index.html` in a browser to test the same loan logic visually.
 
-Run the following from the project root:
+## Tests
+
+Unit tests are written in:
+
+- `src/test/java/com/example/AppTest.java`
+
+The tests verify:
+
+1. EMI calculation
+2. Full approval case
+3. Conditional approval case
+4. Rejection case
+5. Summary generation
+
+## Jenkins Pipeline
+
+The pipeline is defined in:
+
+- `Jenkinsfile`
+
+Stages:
+
+1. Checkout
+2. Build
+3. Test
+4. Package
+
+After the build, Jenkins publishes JUnit reports and archives the generated JAR.
+
+## Local Run
+
+Run from the project root:
 
 ```powershell
 mvn clean test package
+java -cp target\smart-loan-advisor-1.0-SNAPSHOT.jar com.example.App
+```
+
+## Website Run
+
+Open this file directly in your browser:
+
+```text
+web/index.html
 ```

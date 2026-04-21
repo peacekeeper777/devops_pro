@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Loan Advisor</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <main class="page-shell">
+        <section class="hero">
+            <p class="eyebrow">Java Logic + Web Demo</p>
+            <h1>Smart Loan Advisor</h1>
+            <p class="hero-copy">
+                A simple financial decision system that estimates EMI, measures debt pressure,
+                assigns risk, and recommends a loan outcome.
+            </p>
+        </section>
+
+        <section class="card-grid">
+            <article class="card form-card">
+                <h2>Applicant Details</h2>
+                <form id="loan-form">
+                    <label>
+                        Applicant Name
+                        <input type="text" id="name" value="Aman" required>
+                    </label>
+                    <label>
+                        Monthly Income
+                        <input type="number" id="income" value="85000" min="1" required>
+                    </label>
+                    <label>
+                        Monthly Expenses
+                        <input type="number" id="expenses" value="25000" min="0" required>
+                    </label>
+                    <label>
+                        Existing EMIs
+                        <input type="number" id="existingEmis" value="8000" min="0" required>
+                    </label>
+                    <label>
+                        Credit Score
+                        <input type="number" id="creditScore" value="782" min="300" max="900" required>
+                    </label>
+                    <label>
+                        Requested Loan Amount
+                        <input type="number" id="loanAmount" value="500000" min="1" required>
+                    </label>
+                    <label>
+                        Annual Interest Rate
+                        <input type="number" id="interestRate" value="11.5" min="0" step="0.1" required>
+                    </label>
+                    <label>
+                        Tenure (Months)
+                        <input type="number" id="tenureMonths" value="36" min="1" required>
+                    </label>
+                    <button type="submit">Analyze Application</button>
+                </form>
+            </article>
+
+            <article class="card result-card">
+                <div class="result-header">
+                    <p class="eyebrow">Assessment Result</p>
+                    <span id="status-pill" class="status-pill">Approved</span>
+                </div>
+                <h2 id="summary-name">Aman</h2>
+                <p id="summary-message" class="summary-message">
+                    Applicant is financially strong and eligible for the full amount.
+                </p>
+                <div class="metrics">
+                    <div class="metric">
+                        <span>Estimated EMI</span>
+                        <strong id="emi">16,484.14</strong>
+                    </div>
+                    <div class="metric">
+                        <span>Disposable Income</span>
+                        <strong id="disposable-income">52,000.00</strong>
+                    </div>
+                    <div class="metric">
+                        <span>Debt-to-Income Ratio</span>
+                        <strong id="dti">28.81%</strong>
+                    </div>
+                    <div class="metric">
+                        <span>Recommended Amount</span>
+                        <strong id="recommended-amount">500,000.00</strong>
+                    </div>
+                    <div class="metric">
+                        <span>Risk Level</span>
+                        <strong id="risk-level">LOW</strong>
+                    </div>
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
